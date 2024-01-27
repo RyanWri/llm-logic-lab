@@ -8,7 +8,7 @@ lab\_{_index_}:
 
 - data
 - task.ipynb
-- main.py
+- task.py ( this is the jupyter exported file)
 
 utils:
 
