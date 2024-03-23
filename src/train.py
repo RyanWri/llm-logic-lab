@@ -1,5 +1,7 @@
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
+from sklearn.naive_bayes import GaussianNB
+from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC 
 
 class Trainer:
@@ -31,3 +33,17 @@ class Trainer:
         Y_pred = svc.predict(self.X_test)
         acc_svc = round(svc.score(self.X_train, self.Y_train) * 100, 2)
         print(f"svm accuracy: {acc_svc}")
+    
+    def train_knn(self, neighbors: int):
+        knn = KNeighborsClassifier(n_neighbors = neighbors)
+        knn.fit(self.X_train, self.Y_train)
+        Y_pred = knn.predict(self.X_test)
+        acc_knn = round(knn.score(self.X_train, self.Y_train) * 100, 2)
+        print(f"knn classifier accuracy: {acc_knn}")
+    
+    def train_naive_bayes(self):
+        gaussian = GaussianNB()
+        gaussian.fit(self.X_train, self.Y_train)
+        Y_pred = gaussian.predict(self.X_test)
+        acc_gaussian = round(gaussian.score(self.X_train, self.Y_train) * 100, 2)
+        print(f"gaussian accuracy: {acc_gaussian}")

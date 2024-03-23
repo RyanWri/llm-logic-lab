@@ -136,3 +136,9 @@ if __name__ == "__main__":
 
     # Support Vector Machines
     svm = trainer.train_svm()
+
+    # K Nearest Neighbors with 3 neighbours
+    knn = trainer.train_knn(neighbors=3)
+
+    # Gaussian Naive Bayes
+    naive_bayes  = trainer.train_naive_bayes()
