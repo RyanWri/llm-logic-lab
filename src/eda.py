@@ -7,7 +7,7 @@ from engineer_utils import *
 import numpy as np
 import logging
 from train import Trainer
-from preprocess import preprocess_data
+from preprocess import preprocess_data, read_data
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -33,10 +33,6 @@ def correlation_to_target(
     )
 
 
-def read_data(filepath: str, dataset_type: str) -> pd.DataFrame:
-    return pd.read_csv(os.path.join(filepath, "data", f"{dataset_type}.csv"))
-
-
 def plot_eda(df: pd.DataFrame, target_col: str) -> None:
     plot_histogram(df, src_col="Age", target_col=target_col, bins=20)
     plot_histogram_with_legend(df, src_col="Pclass", target_col=target_col)
@@ -46,8 +42,7 @@ def plot_eda(df: pd.DataFrame, target_col: str) -> None:
 
 if __name__ == "__main__":
     # read data
-    filepath = Path(os.path.abspath(__file__)).parent.parent
-    train_df = read_data(filepath, dataset_type="train")
+    train_df = read_data(csv_file="train.csv")
 
     # show features and correlation to survived target label
     target_col = "Survived"
@@ -120,19 +115,18 @@ if __name__ == "__main__":
     print(train_df.head())
 
     # training
-    train_df2 = read_data(filepath, dataset_type="train")
+    train_df2 = read_data(csv_file="train.csv")
     train_df2 = preprocess_data(train_df2, target_col=target_col)
     train_df2 = train_df2.drop("PassengerId", axis=1)
-    test_df = read_data(filepath, dataset_type="test")
+    test_df = read_data(csv_file="test.csv")
     test_df = preprocess_data(test_df, target_col=target_col)
-    
+
     # logistics regression
     trainer = Trainer(train_df2, test_df)
     logreg = trainer.train_lr()
 
     coef_df = trainer.correlation_to_lr(train_df2, logreg)
-    print(coef_df.sort_values(by='Correlation', ascending=False))
-
+    print(coef_df.sort_values(by="Correlation", ascending=False))
 
     # Support Vector Machines
     svm = trainer.train_svm()
@@ -141,4 +135,4 @@ if __name__ == "__main__":
     knn = trainer.train_knn(neighbors=3)
 
     # Gaussian Naive Bayes
-    naive_bayes  = trainer.train_naive_bayes()
+    naive_bayes = trainer.train_naive_bayes()

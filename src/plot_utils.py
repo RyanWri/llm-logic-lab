@@ -40,3 +40,10 @@ def plot_barplot(df: pd.DataFrame, src_col: str, target_col: str) -> None:
     grid.map(sns.barplot, "Sex", "Fare", alpha=0.5, errorbar=None)
     grid.add_legend()
     save_plot(plt, directory, f"barplot_{src_col}_{target_col}.png")
+
+
+def plot_model_scores(df: pd.DataFrame) -> None:
+    plt.figure(figsize=(20, 10))
+    fig = plt.bar(df.index, df["Score"], color="aqua")
+    plt.grid()
+    save_plot(plt, directory, f"models_accuracy_scores.png")

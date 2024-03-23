@@ -1,12 +1,19 @@
 import pandas as pd
 from engineer_utils import *
 import logging
+from pathlib import Path
+import os
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-def preprocess_data(df: pd.DataFrame, target_col: str) -> pd.DataFrame:
+def read_data(csv_file: str) -> pd.DataFrame:
+    filepath = Path(os.path.abspath(__file__)).parent.parent
+    return pd.read_csv(os.path.join(filepath, "data", csv_file))
+
+
+def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
     # show features and correlation to survived target label
     # print_dataframe_stats(df, dataset_type="train")
     # for col in ["Pclass", "Sex", "SibSp", "Parch"]:
