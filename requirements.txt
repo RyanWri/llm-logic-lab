@@ -2,3 +2,7 @@ numpy
 pandas
 pyarrow
 matplotlib
+scikit-learn
+seaborn
+matplotlib
+black
