@@ -6,6 +6,8 @@ from plot_utils import *
 from engineer_utils import *
 import numpy as np
 import logging
+from train import Trainer
+from preprocess import preprocess_data
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -49,6 +51,7 @@ if __name__ == "__main__":
 
     # show features and correlation to survived target label
     target_col = "Survived"
+    # x = preprocess_data(df=train_df, target_col=target_col)
     # print_dataframe_stats(train_df, dataset_type="train")
     # for col in ["Pclass", "Sex", "SibSp", "Parch"]:
     #     print(correlation_to_target(train_df, src_col=col, target_col=target_col))
@@ -98,21 +101,38 @@ if __name__ == "__main__":
     train_df["FamilySize"] = calc_family_size(train_df)
     print(train_df.head())
 
-
     logger.info("remove family features")
-    train_df = train_df.drop(['Parch', 'SibSp', 'FamilySize'], axis=1)
+    train_df = train_df.drop(["Parch", "SibSp", "FamilySize"], axis=1)
     print(train_df.head())
 
     logger.info("age times class feature")
-    train_df['Age*Class'] = train_df.Age * train_df.Pclass
+    train_df["Age*Class"] = train_df.Age * train_df.Pclass
 
     logger.info("ports feature engineering")
     train_df["Embarked"] = port_to_number(train_df, "Embarked").astype(int)
     print(train_df.head())
 
     logger.info("filling missing fare with median data")
-    train_df["Fare"] = train_df['Fare'].fillna(train_df['Fare'].dropna().median())
+    train_df["Fare"] = train_df["Fare"].fillna(train_df["Fare"].dropna().median())
     train_df["Fare"] = split_fare_price_to_ranges(train_df, bins=4)
     # remove Fare band as we have fare ranges
     train_df = train_df.drop(["FareBand"], axis=1)
     print(train_df.head())
+
+    # training
+    train_df2 = read_data(filepath, dataset_type="train")
+    train_df2 = preprocess_data(train_df2, target_col=target_col)
+    train_df2 = train_df2.drop("PassengerId", axis=1)
+    test_df = read_data(filepath, dataset_type="test")
+    test_df = preprocess_data(test_df, target_col=target_col)
+    
+    # logistics regression
+    trainer = Trainer(train_df2, test_df)
+    logreg = trainer.train_lr()
+
+    coef_df = trainer.correlation_to_lr(train_df2, logreg)
+    print(coef_df.sort_values(by='Correlation', ascending=False))
+
+
+    # Support Vector Machines
+    svm = trainer.train_svm()
