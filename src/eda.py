@@ -112,5 +112,7 @@ if __name__ == "__main__":
 
     logger.info("filling missing fare with median data")
     train_df["Fare"] = train_df['Fare'].fillna(train_df['Fare'].dropna().median())
-    train_df["FareBand"] = split_fare_price_to_ranges(train_df, bins=4).astype(int)
+    train_df["Fare"] = split_fare_price_to_ranges(train_df, bins=4)
+    # remove Fare band as we have fare ranges
+    train_df = train_df.drop(["FareBand"], axis=1)
     print(train_df.head())

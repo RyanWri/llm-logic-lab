@@ -106,4 +106,5 @@ def split_fare_price_to_ranges(df: pd.DataFrame, bins: int) -> pd.Series:
     df.loc[(df['Fare'] > 7.91) & (df['Fare'] <= 14.454), 'Fare'] = 1
     df.loc[(df['Fare'] > 14.454) & (df['Fare'] <= 31), 'Fare']   = 2
     df.loc[ df['Fare'] > 31, 'Fare'] = 3
-    return df["FareBand"]
+    df['Fare'] = df['Fare'].astype(int)
+    return df["Fare"]
