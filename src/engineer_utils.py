@@ -57,12 +57,12 @@ def guess_age_from_distribution(df: pd.DataFrame) -> pd.Series:
 
 def split_age_to_ranges(df: pd.DataFrame, bins: int) -> pd.Series:
     df["AgeBand"] = pd.cut(df["Age"], bins=bins)
-    print(
-        df[["AgeBand", "Survived"]]
-        .groupby(["AgeBand"], as_index=False)
-        .mean()
-        .sort_values(by="AgeBand", ascending=True)
-    )
+    # print(
+    #     df[["AgeBand", "Survived"]]
+    #     .groupby(["AgeBand"], as_index=False)
+    #     .mean()
+    #     .sort_values(by="AgeBand", ascending=True)
+    # )
     df.loc[df["Age"] <= 16, "Age"] = 0
     df.loc[(df["Age"] > 16) & (df["Age"] <= 32), "Age"] = 1
     df.loc[(df["Age"] > 32) & (df["Age"] <= 48), "Age"] = 2
@@ -73,38 +73,40 @@ def split_age_to_ranges(df: pd.DataFrame, bins: int) -> pd.Series:
 
 def calc_family_size(df: pd.DataFrame) -> pd.Series:
     df["FamilySize"] = df["SibSp"] + df["Parch"] + 1
-    print(
-        df[["FamilySize", "Survived"]]
-        .groupby(["FamilySize"], as_index=False)
-        .mean()
-        .sort_values(by="Survived", ascending=False)
-    )
+    # print(
+    #     df[["FamilySize", "Survived"]]
+    #     .groupby(["FamilySize"], as_index=False)
+    #     .mean()
+    #     .sort_values(by="Survived", ascending=False)
+    # )
 
     df["IsAlone"] = 0
     df.loc[df["FamilySize"] == 1, "IsAlone"] = 1
-    print(df[["IsAlone", "Survived"]].groupby(["IsAlone"], as_index=False).mean())
+    # print(df[["IsAlone", "Survived"]].groupby(["IsAlone"], as_index=False).mean())
     return df["FamilySize"]
+
 
 def port_to_number(df: pd.DataFrame, col: str) -> pd.Series:
     ports_mapping = {"S": 0, "C": 1, "Q": 2}
     freq_port = df[col].dropna().mode()[0]
     print(f"frequent port is {freq_port}")
     df[col] = df[col].fillna(freq_port)
-    print(df[['Embarked', 'Survived']].groupby(['Embarked'], as_index=False).mean().sort_values(by='Survived', ascending=False))
+    # print(df[['Embarked', 'Survived']].groupby(['Embarked'], as_index=False).mean().sort_values(by='Survived', ascending=False))
     df[col] = df[col].map(ports_mapping)
     return df[col].values
 
+
 def split_fare_price_to_ranges(df: pd.DataFrame, bins: int) -> pd.Series:
     df["FareBand"] = pd.qcut(df["Fare"], bins)
-    print(
-        df[["FareBand", "Survived"]]
-        .groupby(["FareBand"], as_index=False)
-        .mean()
-        .sort_values(by="FareBand", ascending=True)
-    )
-    df.loc[ df['Fare'] <= 7.91, 'Fare'] = 0
-    df.loc[(df['Fare'] > 7.91) & (df['Fare'] <= 14.454), 'Fare'] = 1
-    df.loc[(df['Fare'] > 14.454) & (df['Fare'] <= 31), 'Fare']   = 2
-    df.loc[ df['Fare'] > 31, 'Fare'] = 3
-    df['Fare'] = df['Fare'].astype(int)
+    # print(
+    #     df[["FareBand", "Survived"]]
+    #     .groupby(["FareBand"], as_index=False)
+    #     .mean()
+    #     .sort_values(by="FareBand", ascending=True)
+    # )
+    df.loc[df["Fare"] <= 7.91, "Fare"] = 0
+    df.loc[(df["Fare"] > 7.91) & (df["Fare"] <= 14.454), "Fare"] = 1
+    df.loc[(df["Fare"] > 14.454) & (df["Fare"] <= 31), "Fare"] = 2
+    df.loc[df["Fare"] > 31, "Fare"] = 3
+    df["Fare"] = df["Fare"].astype(int)
     return df["Fare"]
