@@ -5,5 +5,8 @@ matplotlib
 scikit-learn
 seaborn
 matplotlib
-black
+ruff
 pyclean
+nltk
+torch
+spacy
