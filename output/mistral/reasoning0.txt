@@ -1,0 +1,8 @@
+Sentence: John couldn't find his glasses while they were on his head.
+Reasoning:
+ 1. Step 1: Observation - The initial observation is that John could not find his glasses even though he was searching for them.
+
+2. Step 2: Assumption - Since John could not find the glasses, it can be assumed that he was not holding the glasses in his hand or had intentionally put them down somewhere else. However, the statement suggests that he had been looking around, implying he searched places where he might normally leave or misplace his glasses.
+
+3. Step 3: Conclusion - Given the fact that John could not find his glasses and had thoroughly searched for them in usual locations, it can be inferred that the glasses were on John's head at the time he was searching, explaining why he could not find them despite the fact they were actually with him all along.
+

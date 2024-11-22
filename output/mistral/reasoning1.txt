@@ -1,0 +1,8 @@
+Sentence: After the rain, Sarah grabbed her umbrella before leaving the office.
+Reasoning:
+ 1. Observation: It has rained (this can be observed from weather reports or direct observation).
+
+2. Inference: Since it has rained and Sarah is at the office, there's a high likelihood that she would have an umbrella with her since she usually carries one when going out in the rain (based on past behavior).
+
+3. Conclusion: Therefore, after the rain, Sarah will likely grab her umbrella before leaving the office because it is necessary to protect herself from further rain. This action is consistent with her previous behavior and the current weather condition.
+

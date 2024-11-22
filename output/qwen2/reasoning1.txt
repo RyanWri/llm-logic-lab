@@ -1,0 +1,6 @@
+Sentence: After the rain, Sarah grabbed her umbrella before leaving the office.
+Reasoning:
+1. It is raining outside.
+2. Sarah anticipates getting wet if she doesn't use an umbrella.
+3. Sarah decides to take precautions by carrying an umbrella to protect herself from the rain.
+

@@ -1,12 +1,2 @@
-numpy
-pandas
-pyarrow
-matplotlib
-scikit-learn
-seaborn
-matplotlib
-ruff
-pyclean
-nltk
-torch
-spacy
+ollama==0.3.2
+ruff==0.7.0

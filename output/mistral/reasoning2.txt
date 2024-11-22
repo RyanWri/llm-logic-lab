@@ -1,0 +1,8 @@
+Sentence: The coffee was too hot to drink, so I added an ice cube.
+Reasoning:
+ Reasoning Step 1: The initial observation is that the coffee was too hot to drink, which implies it exceeded a comfortable temperature for consumption.
+
+Reasoning Step 2: To lower the temperature of the coffee, one possible solution is to add something cold. Ice cubes are commonly used in this situation since they can quickly and effectively cool down liquids.
+
+Reasoning Step 3: By adding an ice cube, the temperature of the coffee should decrease as the ice cube melts and mixes with the hot liquid, making it more suitable for drinking. This process would make the coffee easier to consume without causing discomfort or burns.
+

@@ -1,0 +1,13 @@
+Sentence: Tom can't go to his sister's wedding because he's studying abroad in Japan.
+Reasoning:
+ 1. Tom is currently residing in a place called Japan, as indicated by the phrase "studying abroad in Japan."
+
+2. Traveling from Japan to the location of the sister's wedding requires time and resources, which might be difficult or impossible due to various factors such as flight schedules, cost, visa restrictions, or personal constraints (e.g., study commitments).
+
+3. Since Tom can neither easily arrange travel nor take time off from his studies in Japan, he is unable to attend his sister's wedding, thereby concluding that "Tom can't go to his sister's wedding."
+
+In summary:
+1) Tom is in Japan.
+2) Traveling to the sister's wedding location from Japan would be challenging due to various factors.
+3) Therefore, Tom cannot attend the wedding.
+
