@@ -34,15 +34,6 @@ def concat_text_files(input_folder: str, output_filename: str) -> None:
         print(f"An error occurred: {e}")
 
 
-"""
-can Find a sentence that at least one of the models fails to find the reasoning chain. 
-if you did find Explain why it fails, if not explain why those models are SOTA(state of the art) at finiding reasoning.
-
-mistral model:
-
-
-"""
-
 if __name__ == "__main__":
     input_folder = "/Users/ranwright/afeka-courses/afeka-nlp-course/output"
     output_folder = f"{input_folder}/concat"
