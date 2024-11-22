@@ -1,0 +1,8 @@
+Sentence: The coffee was too hot to drink, so I added an ice cube.
+Reasoning:
+ 1. Reasoning Step 1: Identification of Problem - The initial observation is that the coffee was too hot to drink comfortably. This is a problem because one cannot consume liquids at temperatures that may cause discomfort or potentially burns.
+
+2. Reasoning Step 2: Brainstorming Solutions - In search of a solution, you consider several options such as waiting for the coffee to cool down, using a cold spoon, or adding something cold to lower its temperature immediately.
+
+3. Reasoning Step 3: Implementation and Evaluation - You decide to add an ice cube to quickly reduce the coffee's temperature without having to wait for it to cool naturally. After adding the ice cube, you evaluate the effectiveness of your solution by testing the temperature of the coffee with your fingertip or using a thermometer (if available). If the coffee is now cool enough to drink comfortably, your problem has been successfully solved.
+

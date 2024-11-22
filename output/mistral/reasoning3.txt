@@ -1,0 +1,8 @@
+Sentence: Tom can't go to his sister's wedding because he's studying abroad in Japan.
+Reasoning:
+ 1. Identify the Location: The first step is to identify the current location of Tom, which is specified as being "studying abroad in Japan".
+
+2. Understand Travel Limitations: Given that Tom is studying abroad and not based locally, it follows that he has certain travel limitations due to his studies, visa status, or financial constraints. These limitations make it difficult for him to travel back to where his sister's wedding is taking place.
+
+3. Conclude Impossibility of Attendance: Since Tom is facing travel limitations due to his studies abroad in Japan, and the location of his sister's wedding is not in Japan, it can be concluded that he cannot attend the wedding because he physically cannot be in two places at once. Therefore, Tom will not be able to go to his sister's wedding.
+

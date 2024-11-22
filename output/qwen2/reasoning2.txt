@@ -1,0 +1,14 @@
+Sentence: The coffee was too hot to drink, so I added an ice cube.
+Reasoning:
+Step 1: Evaluate the current situation - Upon tasting the coffee, you immediately notice that it is excessively hot, which makes it uncomfortable or even painful to consume.
+
+Reasoning: The primary consideration here is the temperature of the coffee, as discomfort and potential harm are associated with drinking something too hot. 
+
+Step 2: Identify a feasible solution - In this context, cooling down the coffee seems like an appropriate action to make it palatable for consumption. You might consider various methods such as waiting for it to naturally cool down, adding milk or cream, or using a different beverage to dilute its temperature.
+
+Reasoning: The objective is to adjust the temperature of the coffee so that it can be safely and comfortably consumed. Among these options, adding an ice cube seems like a direct and effective method to decrease the overall heat content quickly without altering the flavor significantly.
+
+Step 3: Implement the chosen action - Carefully add an ice cube to the cup containing the hot coffee while being mindful of the potential for temperature shock from sudden contact with cold substance and ensuring safety to avoid any mishaps.
+
+Reasoning: The final step involves taking direct action on the identified problem. By adding a single ice cube, you're effectively reducing the heat in the coffee by several degrees, making it safe enough to drink without causing discomfort or injury due to thermal burns. This reasoning leads logically from evaluating the issue at hand through choosing an effective solution and then executing that plan with caution for safety purposes.
+
