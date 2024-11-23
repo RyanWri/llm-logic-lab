@@ -19,4 +19,4 @@ if __name__ == "__main__":
         section 6 is failure analysis (missing assumptions or hidden assumptions)
     """
 
-    task7(root_dir, models)
+    #task7(root_dir, models)
