@@ -1,0 +1,4 @@
+Prompt: Who has the telescope in the sentence 'She saw the man with a telescope'?
+Response:
+In the sentence "She saw the man with a telescope," the subject performing the action of seeing is referred to as 'she.' Therefore, it is 'she' who possesses or uses the telescope.
+

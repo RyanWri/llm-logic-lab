@@ -4,11 +4,11 @@ import random
 import string
 
 
-def write_to_file(sentence, reasoning, filename):
+def write_to_file(sentence, reasoning, filename, first_line='Sentence', second_line='Reasoning'):
     """Write the sentence and its reasoning to a file."""
     with open(filename, "w") as file:
-        file.write(f"Sentence: {sentence}\n")
-        file.write(f"Reasoning:\n{reasoning}\n")
+        file.write(f"{first_line}: {sentence}\n")
+        file.write(f"{second_line}:\n{reasoning}\n")
         file.write("\n")
 
 

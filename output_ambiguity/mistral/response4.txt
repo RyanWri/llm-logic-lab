@@ -1,0 +1,4 @@
+Prompt: Who has the telescope in the sentence 'She saw the man with a telescope'?
+Response:
+ The sentence does not specify who possesses the telescope. It implies that the man is the one using or carrying the telescope, but we cannot confirm definitively who owns it based on the provided information.
+
