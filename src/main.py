@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from src.models_handler.ollama_handler import task7
+from src.models_handler.ollama_handler import task8
 
 
 if __name__ == "__main__":
@@ -19,4 +19,5 @@ if __name__ == "__main__":
         section 6 is failure analysis (missing assumptions or hidden assumptions)
     """
 
-    #task7(root_dir, models)
+    # task7(root_dir, models)
+    # task8(root_dir, models)

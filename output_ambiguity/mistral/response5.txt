@@ -1,0 +1,4 @@
+Prompt: Does 'with a telescope' describe how she saw the man or describe the man?
+Response:
+ 'With a telescope' describes the method by which she saw the man.
+

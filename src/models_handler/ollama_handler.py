@@ -13,6 +13,15 @@ def generate_reasoning(sentence, model: str):
     return response.get("response", "")
 
 
+def generate_response_from_prompt(prompt, model: str):
+    """Generate the meaning for a sentence using a given Ollama model"""
+    response = ollama.generate(
+        model=model,
+        prompt=prompt
+    )
+    return response.get("response", "")
+
+
 def task1_to_task_4(root_dir: str, models: list[str], output_dir_name='output', input_file_name='sentences.txt'):
     """Load sentences and generate reasoning for each, then write to file."""
     input_filename = f"{root_dir}/data/{input_file_name}"
@@ -33,3 +42,15 @@ def task7(root_dir: str, models: list[str]):
     # output_filename = f"{root_dir}/data/nonsense_sentences.txt"
     # create_nonsense_sentences(input_filename, output_filename)
     task1_to_task_4(root_dir, models, 'output_nonsense', 'nonsense_sentences.txt')
+
+
+def task8(root_dir: str, models: list[str]):
+    input_filename = f"{root_dir}/data/ambiguous_sentences_prompts.txt"
+    prompts = load_sentences(input_filename)
+
+    for model in models:
+        output_dir = f"{root_dir}/output_ambiguity/{model}"
+        os.makedirs(output_dir, exist_ok=True)
+        for i, prompt in enumerate(prompts):
+            response = generate_response_from_prompt(prompt, model=model)
+            write_to_file(prompt, response, f"{output_dir}/response{i}.txt", first_line='Prompt', second_line='Response')
