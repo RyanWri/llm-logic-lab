@@ -1,5 +1,7 @@
 from pathlib import Path
 
+from src.models_handler.ollama_handler import task7
+
 
 if __name__ == "__main__":
     # Set root dir for all tasks
@@ -16,3 +18,5 @@ if __name__ == "__main__":
         section 5 is reasoning analysis
         section 6 is failure analysis (missing assumptions or hidden assumptions)
     """
+
+    #task7(root_dir, models)

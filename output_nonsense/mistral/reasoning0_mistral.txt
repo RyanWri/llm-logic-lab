@@ -1,0 +1,8 @@
+Sentence: After the rain, Sarah fnpe her umbrella before leaving the office.
+Reasoning:
+1. Reasoning Step 1: It rained earlier or recently, as indicated by the context "After the rain". This is an observation based on the given statement that it rained.
+
+2. Reasoning Step 2: Umbrellas are used to protect people from getting wet during rain. Since it rained and Sarah went out after that, she would likely have an umbrella with her for protection.
+
+3. Reasoning Step 3: Sarah took her umbrella before leaving the office, as stated in the given statement. This is inferred from the fact that she needed her umbrella due to the rain (Reasoning Step 2) and the action of taking it with her occurs immediately after the rain stops, hence "before leaving the office". The reason for this action is to prevent herself from getting wet on her way out of the office.
+

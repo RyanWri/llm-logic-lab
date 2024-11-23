@@ -1,0 +1,8 @@
+Sentence: After the rain, Sarah grabbed her umbrella mmrac jkfv the office.
+Reasoning:
+1. It rained (evidence: After the rain), implying that there were wet conditions outside.
+
+2. Sarah, being aware of the wet conditions, would want to protect herself from getting wet (reasoning: Humans usually avoid getting wet in rain).
+
+3. To protect herself from getting wet, Sarah grabbed her umbrella (evidence: Sarah grabbed her umbrella), which she keeps at the office (reasoning: Umbrellas are typically carried to keep dry in rainy conditions and it's stated that Sarah kept hers at the office).
+
