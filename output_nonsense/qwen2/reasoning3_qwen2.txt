@@ -1,0 +1,10 @@
+Sentence: After the onmxba, wyesm ocuoug her xqbnx before tvegke the office.
+Reasoning:
+1. **Temporal Relationship Recognition**: The first reasoning step involves identifying that "after" is being used to denote a temporal relationship between two actions. Here, it indicates that an event (the onmxba) precedes another event (wyesm ocuoug her xqbnx).
+
+2. **Sequence Determination**: Once the temporal relationship has been recognized, the second step involves determining the sequence of these events. The statement "after the onmxba, wyesm ocuoug her xqbnx" indicates that after performing or experiencing the onmxba event, another action (wyesm) is performed before tvegke-ing towards the office.
+
+3. **Contextual Understanding**: The third reasoning step involves understanding the context and purpose of these actions within the scenario described by the statement. This might involve interpreting what "onmxba", "wyesm", "ocuoug", "xqbnx", and "tvegke" could represent based on common language usage or context clues from which they are derived. For example, understanding that this is likely a workplace setting where someone might go through an onmxba (possibly meaning a process or ritual) before going to their office (tvegke). This step requires knowledge of the scenario's context and potential meanings of the terms used.
+
+In summary, these reasoning steps involve identifying temporal relationships, determining event sequences, and contextual interpretation to fully understand and describe the actions being outlined in the given statement.
+
