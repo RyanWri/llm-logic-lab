@@ -1,6 +1,5 @@
 from pathlib import Path
 
-from src.models_handler.ollama_handler import task1_to_task_4
 
 if __name__ == "__main__":
     # Set root dir for all tasks
@@ -11,5 +10,9 @@ if __name__ == "__main__":
     # make sure not to modify the model results as we depend on them in the word document
     # task1_to_task_4(root_dir, models)
 
-    # task 4 - Please see section 4 in the word document
-    # task 5 - Please see section 5 in the word document
+    """ 
+        task 4 - 6:  Please see conclusions folder + ran-nlp-results
+        section 4 is model results comparison
+        section 5 is reasoning analysis
+        section 6 is failure analysis (missing assumptions or hidden assumptions)
+    """
