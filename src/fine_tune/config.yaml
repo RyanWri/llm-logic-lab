@@ -1,0 +1,27 @@
+model:
+  name: "mistralai/Mistral-7B-v0.1"  # Pretrained Mistral model
+  lora_r: 16                        # LoRA rank
+  lora_alpha: 32                    # LoRA scaling factor
+  lora_dropout: 0.1                 # LoRA dropout rate
+  target_modules:                   # LoRA target modules (e.g., attention layers)
+    - "q_proj"
+    - "v_proj"
+
+training:
+  output_dir: "/home/ran/fine-tuned-models"    # Directory to save fine-tuned model
+  num_train_epochs: 3              # Number of epochs
+  per_device_train_batch_size: 4   # Batch size for training
+  per_device_eval_batch_size: 4    # Batch size for evaluation
+  learning_rate: 2e-5              # Learning rate
+  weight_decay: 0.01               # Weight decay
+  evaluation_strategy: "steps"     # Evaluation strategy
+  eval_steps: 500                  # Evaluate every 500 steps
+  save_steps: 1000                 # Save model every 1000 steps
+  logging_steps: 50                # Log progress every 50 steps
+  fp16: true                       # Use mixed precision
+  push_to_hub: false               # Do not push to Hugging Face Hub
+
+dataset:
+  name: "allenai/atomic"           # HuggingFace dataset name
+  split_train: "train"             # Training split
+  split_val: "validation"          # Validation split
