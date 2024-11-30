@@ -18,6 +18,20 @@ def load_atomic_dataset(config):
     ]
 
 
+def preprocess_atomic(example):
+    data = []
+    # Iterate through commonsense dimensions
+    for dimension in ["xReact", "xIntent", "oReact", "oEffect", "xWant", "xNeed"]:
+        annotations = example[dimension]
+        if annotations:  # Only include non-empty annotations
+            input_text = f"Event: {example['event']}. Dimension: {dimension}."
+            label = ", ".join(
+                annotations
+            )  # Join multiple annotations into a single string
+            data.append({"input_text": input_text, "labels": label})
+    return data
+
+
 # Prepare LoRA-configured model
 def prepare_lora_model(config):
     # Load pre-trained model and tokenizer
@@ -25,6 +39,9 @@ def prepare_lora_model(config):
         config["model"]["name"], device_map="auto"
     )
     tokenizer = AutoTokenizer.from_pretrained(config["model"]["name"], use_fast=True)
+
+    for name, module in model.named_modules():
+        print(name)
 
     # Define LoRA configuration
     lora_config = LoraConfig(

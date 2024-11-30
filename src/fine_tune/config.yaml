@@ -1,11 +1,10 @@
 model:
-  name: "mistralai/Mistral-7B-v0.1"  # Pretrained Mistral model
+  name: "tiiuae/falcon-rw-1b"  # Pretrained Falcon with 1B parameters (limited resources)
   lora_r: 16                        # LoRA rank
   lora_alpha: 32                    # LoRA scaling factor
   lora_dropout: 0.1                 # LoRA dropout rate
   target_modules:                   # LoRA target modules (e.g., attention layers)
-    - "q_proj"
-    - "v_proj"
+    - "query_key_value"             # Attention layers
 
 training:
   output_dir: "/home/ran/fine-tuned-models"    # Directory to save fine-tuned model
