@@ -4,7 +4,9 @@ import random
 import string
 
 
-def write_to_file(sentence, reasoning, filename, first_line='Sentence', second_line='Reasoning'):
+def write_to_file(
+    sentence, reasoning, filename, first_line="Sentence", second_line="Reasoning"
+):
     """Write the sentence and its reasoning to a file."""
     with open(filename, "w") as file:
         file.write(f"{first_line}: {sentence}\n")
@@ -52,7 +54,7 @@ def write_sentences_to_file(filename: str, sentences: list[str]):
     try:
         with open(filename, "w") as nonsense_file:
             for sentence in sentences:
-                nonsense_file.write(sentence + '\n')
+                nonsense_file.write(sentence + "\n")
     except Exception as e:
         print(f"An error occurred: {e}")
 
@@ -64,26 +66,32 @@ def replace_random_words(sentence, max_words_to_replace=5):
     word_indices = random.sample(range(len(words)), num_words_to_replace)
 
     for index in word_indices:
-        random_characters = ''.join(random.choices(string.ascii_lowercase, k=random.randint(4, 6)))
-        if words[index].endswith(',') or words[index].endswith('.'):
+        random_characters = "".join(
+            random.choices(string.ascii_lowercase, k=random.randint(4, 6))
+        )
+        if words[index].endswith(",") or words[index].endswith("."):
             words[index] = random_characters + words[index][-1]
         else:
             words[index] = random_characters
-    return ' '.join(words)
+    return " ".join(words)
 
 
-def create_nonsense_sentences(input_filename, output_filename, max_words_replacement=5, number_of_sentences=5):
+def create_nonsense_sentences(
+    input_filename, output_filename, max_words_replacement=5, number_of_sentences=5
+):
     """Generate the nonsense sentences file"""
     sentences = load_sentences(input_filename)
     if len(sentences) == 0:
-        print(f"No sentences were loaded. Please check input file contents/path! input file name: {input_filename}")
+        print(
+            f"No sentences were loaded. Please check input file contents/path! input file name: {input_filename}"
+        )
         return 0
     chosen_sentence = random.choice(sentences)
-    print(f'Chosen sentence:\n{chosen_sentence}')
+    print(f"Chosen sentence:\n{chosen_sentence}")
     nonsense_sentences = []
     for i in range(number_of_sentences):
-        nonsense_sentences.append(replace_random_words(chosen_sentence, max_words_replacement))
+        nonsense_sentences.append(
+            replace_random_words(chosen_sentence, max_words_replacement)
+        )
     write_sentences_to_file(output_filename, nonsense_sentences)
-    print(f'Nonsense sentences generated successfully into: {output_filename}')
-
-
+    print(f"Nonsense sentences generated successfully into: {output_filename}")

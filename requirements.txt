@@ -1,5 +1,9 @@
-ollama==0.3.2
-ruff==0.7.0
+ollama
+ruff
+networkx
+matplotlib
+datasets
+transformers
+torch
+accelerate
 
-networkx~=3.4.2
-matplotlib~=3.9.2
