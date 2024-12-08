@@ -4,6 +4,6 @@ networkx
 matplotlib
 datasets
 transformers
-torch
+torch==1.12.1
 accelerate
-
+numpy==1.25.1
