@@ -1,21 +1,24 @@
 import torch
-
-print(f"MPS Available: {torch.backends.mps.is_available()}")
 from transformers import pipeline, AutoModelForCausalLM, AutoTokenizer
 
-# Paths to the saved model and tokenizer
-model_path = "/Users/ranwright/fine-tuned-models/atomic-distilgpt2"
-model_name = "distilbert/distilgpt2"
 
-# Load the fine-tuned model and tokenizer
-model = AutoModelForCausalLM.from_pretrained(model_path)
-tokenizer = AutoTokenizer.from_pretrained(model_path)
-if tokenizer.pad_token is None:
-    tokenizer.pad_token = tokenizer.eos_token
+print(f"MPS Available: {torch.backends.mps.is_available()}")
 
-# Create a text-generation pipeline with the correct device
-device = 0 if torch.cuda.is_available() else -1  # Use GPU if available, else CPU
-generator = pipeline("text-generation", model=model, tokenizer=tokenizer, device=device)
+
+def load_model(model_path):
+    # Load the fine-tuned model and tokenizer
+    model = AutoModelForCausalLM.from_pretrained(model_path)
+    tokenizer = AutoTokenizer.from_pretrained(model_path)
+    if tokenizer.pad_token is None:
+        tokenizer.pad_token = tokenizer.eos_token
+
+    # Create a text-generation pipeline with the correct device
+    device = 0 if torch.cuda.is_available() else -1  # Use GPU if available, else CPU
+    generator = pipeline(
+        "text-generation", model=model, tokenizer=tokenizer, device=device
+    )
+    return generator
+
 
 # Example prompts
 prompts = [
@@ -24,8 +27,13 @@ prompts = [
     "Event: PersonX walks their dog. Dimension: oEffect.",
 ]
 
+model_path = "/home/linuxu/models-logs/distilgpt2-fine-tuned/"
+model_name = "distilbert/distilgpt2"
+generator = load_model(model_path)
 # Generate responses
 for prompt in prompts:
-    response = generator(prompt, max_length=50, truncation=True, num_return_sequences=1)
+    response = generator(
+        prompt, max_length=128, truncation=True, num_return_sequences=1
+    )
     print(f"Prompt: {prompt}")
     print(f"Response: {response[0]['generated_text']}\n")
