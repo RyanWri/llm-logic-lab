@@ -34,9 +34,9 @@ def tokenize_function(example):
     return tokenized_inputs
 
 
-dataset = load_atomic_dataset(split="test")
-print(dataset[0])  # Inspect one sample
-tokenized_dataset = dataset.map(tokenize_function, batched=True)
+dataset = load_atomic_dataset(split="validation")
+tokenized_dataset = dataset.map(tokenize_function, batched=False)
+tokenized_dataset = tokenized_dataset.remove_columns(["input_text"])
 print(tokenized_dataset[0])
 
 model_output_dir = "/home/linuxu/models-logs/distilgpt2-fine-tuned"
@@ -50,12 +50,10 @@ training_args = TrainingArguments(
     gradient_accumulation_steps=4,
     eval_strategy="no",
     save_strategy="epoch",
-    logging_steps=1000,
+    logging_steps=300,
     learning_rate=2e-5,
     fp16=fp_16_enabled,
-    save_total_limit=2,
-    load_best_model_at_end=False,
-    report_to="none",
+    load_best_model_at_end=True,
 )
 
 

@@ -32,6 +32,8 @@ model_name = "distilbert/distilgpt2"
 generator = load_model(model_path)
 # Generate responses
 for prompt in prompts:
-    response = generator(prompt, max_length=50, truncation=True, num_return_sequences=1)
+    response = generator(
+        prompt, max_length=128, truncation=True, num_return_sequences=1
+    )
     print(f"Prompt: {prompt}")
     print(f"Response: {response[0]['generated_text']}\n")
