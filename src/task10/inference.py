@@ -21,19 +21,14 @@ def load_model(model_path):
 
 
 # Example prompts
-prompts = [
-    "Generate three reasoning steps for this statement: John couldn't find his glasses while they were on his head.",
-    "Event: PersonX shares their food. Dimension: xIntent.",
-    "Event: PersonX walks their dog. Dimension: oEffect.",
-]
-
-model_path = "/home/linuxu/models-logs/distilgpt2-fine-tuned/"
-model_name = "distilbert/distilgpt2"
+prefix = "Generate reasoning statement about this sentence: "
+sentences = ["John couldn't find his glasses while they were on his head."]
+model_path = "/home/linuxu/models-logs/gpt2-atomic-fine-tuned/"
+model_name = "openai-community/gpt2"
 generator = load_model(model_path)
 # Generate responses
-for prompt in prompts:
-    response = generator(
-        prompt, max_length=128, truncation=True, num_return_sequences=1
-    )
+for sentence in sentences:
+    prompt = f"{prefix}{sentence}"
+    response = generator(prompt, max_length=60, truncation=True, num_return_sequences=1)
     print(f"Prompt: {prompt}")
-    print(f"Response: {response[0]['generated_text']}\n")
+    print(f"Response: {response[0]['generated_text']}")

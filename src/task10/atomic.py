@@ -1,37 +1,47 @@
-from datasets import load_dataset
+from datasets import load_dataset, load_from_disk
+from transformers import pipeline
 
 
-def preprocess_atomic(example):
-    """
-    Preprocesses an ATOMIC dataset example to replace `___` in the event with 'something'
-    and use only the `xReact` dimension for labels.
-    """
-    # Replace `___` in the event with "something"
-    event = example["event"].replace("___", "something")
-
-    # Use only `xReact` as labels if it exists and is non-empty
-    labels = ", ".join(example["xReact"]) if example["xReact"] else ""
-
-    # Return processed example
-    return {"input_text": f"Event: {event}", "labels": labels}
+def load_saved_dataset(dataset_path):
+    return load_from_disk(dataset_path)
 
 
-def load_atomic_dataset(split):
+def gen_reasoning_as_response(prompt):
+    pipe = pipeline("text-generation", model="distilbert/distilgpt2")
+    response = pipe(
+        prompt,
+        max_length=50,
+        truncation=True,
+        num_return_sequences=1,
+        pad_token_id=50256,  # GPT2-specific EOS token ID
+    )[0]["generated_text"]
+    return response
+
+
+def load_atomic_gpt2(split, output_file, sample_size=100):
     # Load the ATOMIC dataset
-    raw_dataset = load_dataset("allenai/atomic", split=split, trust_remote_code=True)
+    dataset = load_dataset("allenai/atomic", split=split, trust_remote_code=True)
+    dataset = dataset.select(range(min(len(dataset), sample_size)))
 
-    # Apply preprocessing to the dataset
-    atomic = raw_dataset.map(
-        preprocess_atomic, batched=False, load_from_cache_file=False
+    atomic = dataset.map(
+        gpt_atomic_map, batched=False, remove_columns=dataset.column_names
     )
-    # Filter out rows where labels are None
-    processed_dataset = atomic.filter(lambda x: x["labels"] is not None)
-    # Remove all other columns except input_text and labels
-    processed_dataset = processed_dataset.remove_columns(
-        [
-            col
-            for col in processed_dataset.column_names
-            if col not in ["input_text", "labels"]
-        ]
-    )
-    return processed_dataset
+    print(atomic[0])
+    atomic.save_to_disk(output_file)
+
+    print(f"Generated reasoning saved to {output_file}")
+
+    return atomic
+
+
+def gpt_atomic_map(row):
+    event = row["event"].replace("___", "")
+    prompt = f"Reason about this sentence: '{event}'."
+    tail = gen_reasoning_as_response(prompt)
+    response = f"response: {tail}"
+    return {"text": f"{prompt}. {response}"}
+
+
+if __name__ == "__main__":
+    output_file = "/home/linuxu/datasets/atomic-gpt2-tuned"
+    load_atomic_gpt2(split="validation", output_file=output_file)

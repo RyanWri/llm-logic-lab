@@ -4,7 +4,7 @@ import random
 import ollama
 import networkx as nx
 import matplotlib.pyplot as plt
-from src.utils import load_sentences, write_to_file, create_nonsense_sentences
+from src.utils import load_sentences, write_to_file
 
 
 def generate_reasoning(sentence, model: str):
