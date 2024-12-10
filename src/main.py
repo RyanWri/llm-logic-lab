@@ -1,6 +1,5 @@
 from pathlib import Path
 
-from src.models_handler.ollama_handler import task1_to_task_4, task7, task8, task9
 
 if __name__ == "__main__":
     # Set root dir for all tasks
