@@ -1,9 +1,6 @@
 {
-    "terminal.integrated.cwd": "/home/linuxu/projects/afeka-nlp-course/",
     "python.analysis.extraPaths": [
-        "/home/linuxu/projects/afeka-nlp-course/src"
-    ],
-    "terminal.integrated.env.linux": {
-        "PYTHONPATH": "/home/linuxu/projects/afeka-nlp-course/"
-    },
+        "/home/linuxu/projects/afeka-nlp-course/src",
+        "/home/ran/Github-projects/afeka-nlp-course/src"
+    ]
 }
