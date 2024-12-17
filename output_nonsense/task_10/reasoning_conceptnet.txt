@@ -1,0 +1,53 @@
+Input: After the rain, Sarah fnpe her umbrella before leaving the office.
+Generated Reasoning: Here are three possible commonsense reasoning triples for the sentence "After the rain, Sarah fnpe her umbrella before leaving the office":
+
+1. (Sarah, had rained, umbrella)
+2. (Sarah, action,fnpe)
+3. (office, time, after)
+--------------------------------------------------
+Input: kzak the rain, Sarah grabbed her wxluik before leaving the office.
+Generated Reasoning: Here are three commonsense reasoning triples that can be generated from the given sentence:
+
+1. Head: Sarah
+Relation: grabbed
+Tail: wxluik
+2. Head: rain
+Relation: caused
+Tail: Sarah to grab her wxluik
+3. Head: office
+Relation: located
+Tail: Sarah before leaving
+--------------------------------------------------
+Input: After the rain, Sarah ntaltk her umbrella before gkiweh the office.
+Generated Reasoning: Here are three commonsense reasoning triples for the given sentence:
+
+1. Head: Sarah
+Relation: opened her umbrella
+Tail: before going to the office
+2. Head: Sarah
+Relation: went to the office
+Tail: after the rain
+3. Head: the umbrella
+Relation: was used by Sarah
+Tail: after the rain
+--------------------------------------------------
+Input: After the onmxba, wyesm ocuoug her xqbnx before tvegke the office.
+Generated Reasoning: Here are three commonsense reasoning triples for the given sentence:
+
+1. (After, occurred, worked)
+2. (Before, traveled, arrived)
+3. (After, visited, office)
+--------------------------------------------------
+Input: After the rain, Sarah grabbed her umbrella mmrac jkfv the office.
+Generated Reasoning: Here are three possible commonsense reasoning triples for the given sentence:
+
+1. Head: Sarah
+Relation: grabbed
+Tail: umbrella
+2. Head: umbrella
+Relation: was carried by
+Tail: Sarah
+3. Head: office
+Relation: located at
+Tail: Sarah
+--------------------------------------------------

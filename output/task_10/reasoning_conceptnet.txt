@@ -1,0 +1,63 @@
+Input: John couldn't find his glasses while they were on his head.
+Generated Reasoning: Here are three commonsense reasoning triples for the given sentence:
+
+1. (John, found, glasses)
+2. (glasses, located, John's head)
+3. (John, unable, find, glasses)
+--------------------------------------------------
+Input: After the rain, Sarah grabbed her umbrella before leaving the office.
+Generated Reasoning: Here are three commonsense reasoning triples for the given sentence:
+
+1. Head: Sarah
+Relation: Grabbed
+Tail: Umbrella
+2. Head: Sarah
+Relation: Left
+Tail: Office
+3. Head: Rain
+Relation: Happened Before
+Tail: Sarah
+--------------------------------------------------
+Input: The coffee was too hot to drink, so I added an ice cube.
+Generated Reasoning: Here are some possible commonsense reasoning triples for the given sentence:
+
+1. Head: The coffee
+Relation: Was too hot
+Tail: To drink
+2. Head: The ice cube
+Relation: Added to
+Tail: The coffee
+--------------------------------------------------
+Input: Tom can't go to his sister's wedding because he's studying abroad in Japan.
+Generated Reasoning: Here are three commonsense reasoning triples for the given sentence:
+
+1. Head: Tom
+Relation: IsStudyingAbroad
+Tail: InJapan
+2. Head: Tom's sister
+Relation: IsGettingMarried
+Tail: AtWedding
+3. Head: Wedding
+Relation: HostedBy
+Tail: Tom
+--------------------------------------------------
+Input: She put the groceries away before the ice cream melted.
+Generated Reasoning: Here are three commonsense reasoning triples for the given sentence:
+
+1. She - put - groceries
+2. She - relate - groceries - ice cream
+3. Ice cream - melt - tail
+--------------------------------------------------
+Input: The plant died because Jenny forgot to open the curtains for a week.
+Generated Reasoning: Here are three possible commonsense reasoning triples for the given sentence:
+
+1. Head: Jenny
+Relation: forgot
+Tail: open the curtains
+2. Head: the plant
+Relation: died
+Tail: because of
+3. Head: Jenny
+Relation: did not
+Tail: open the curtains
+--------------------------------------------------
