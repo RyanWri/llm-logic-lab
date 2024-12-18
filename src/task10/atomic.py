@@ -14,25 +14,19 @@ def gen_reasoning_as_response(prompt, model_name):
     return response
 
 
-def load_atomic_gpt2(split, output_file, sample_size=100):
+def load_atomic(split, output_file, sample_size=100):
     # Load the ATOMIC dataset
     dataset = load_dataset("allenai/atomic", split=split, trust_remote_code=True)
     dataset = dataset.select(range(min(len(dataset), sample_size)))
 
-    atomic = dataset.map(
-        gpt_atomic_map, batched=False, remove_columns=dataset.column_names
-    )
-    print(atomic[0])
+    atomic = dataset.map(atomic_map, batched=False, remove_columns=dataset.column_names)
     atomic.save_to_disk(output_file)
-
-    print(f"Generated reasoning saved to {output_file}")
-
     return atomic
 
 
-def gpt_atomic_map(row):
+def atomic_map(row):
     event = row["event"].replace("___", "")
     prompt = f"Reason about this sentence: '{event}'."
-    tail = gen_reasoning_as_response(prompt)
+    tail = gen_reasoning_as_response(prompt, "meta-llama/Llama-2-7b-hf")
     response = f"response: {tail}"
     return {"text": f"{prompt}. {response}"}
